@@ -17,6 +17,7 @@
 ### Usecase
 - Criar
 - Deletar
+- Listar Todos
 - Incrementar estoque
 - Decrementar estoque
 
