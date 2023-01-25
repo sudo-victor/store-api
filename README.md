@@ -2,12 +2,18 @@
 
 ## User
 - Id String
+- Role String
 - Name String
 - Email String
 - Password String
-### Usecase
+
+### Usease
 - Criar
-- Autenticar
+- Listar
+
+## Auth
+### Usecase
+- Login
 
 ## Product
 - Id String
