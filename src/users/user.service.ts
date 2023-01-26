@@ -9,8 +9,8 @@ export class UserService {
   create(createUserDto: CreateUserDto) {
     const user = new User(
       createUserDto.role,
-      createUserDto.email,
       createUserDto.name,
+      createUserDto.email,
       createUserDto.password,
     );
 
