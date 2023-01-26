@@ -17,6 +17,12 @@ export class UserService {
     this.users.push(user);
     return;
   }
-  // findAll() {}
-  // findByEmail() {}
+
+  findAll() {
+    return this.users;
+  }
+
+  findByEmail(email: string) {
+    return this.findAll().find((user) => user.email === email);
+  }
 }
