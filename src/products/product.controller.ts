@@ -6,7 +6,9 @@ import {
   Param,
   Patch,
   Post,
+  Req,
 } from '@nestjs/common';
+import { User } from 'src/decorators/user.decorator';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { DecrementProductDto } from './dtos/decrement-product.dto';
 import { IncrementProductDto } from './dtos/increment-product.dto';
@@ -17,7 +19,8 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  create(@Body() product: CreateProductDto) {
+  create(@Body() product: CreateProductDto, @User() user: any) {
+    console.log(user);
     return this.productService.create(product);
   }
 

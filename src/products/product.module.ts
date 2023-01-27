@@ -1,4 +1,5 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
+import { EnsureAuthenticationMiddleware } from 'src/auth/middlewares/ensureAuthentication.middleware';
 import { UserModule } from 'src/users/user.module';
 import { ProductController } from './product.controller';
 import { ProductService } from './product.service';
@@ -8,4 +9,8 @@ import { ProductService } from './product.service';
   controllers: [ProductController],
   providers: [ProductService],
 })
-export class ProductModule {}
+export class ProductModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(EnsureAuthenticationMiddleware).forRoutes('products');
+  }
+}

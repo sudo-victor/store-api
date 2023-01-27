@@ -10,7 +10,6 @@ export class AuthService {
   login(loginDto: LoginDto) {
     // achar o usuário
     const userExists = this.userService.findByEmail(loginDto.email);
-    console.log(userExists);
     if (!userExists) {
       throw new HttpException('User not found', HttpStatus.NOT_FOUND);
     }
