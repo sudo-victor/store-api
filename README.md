@@ -30,3 +30,5 @@
 # Libs
 - bcrypt
 - jsonwebtoken
+- typeorm
+- sqlite

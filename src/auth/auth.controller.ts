@@ -6,6 +6,7 @@ import { LoginDto } from './dtos/login.dto';
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  // /auth/login
   @Post('login')
   login(@Body() loginDto: LoginDto) {
     const token = this.authService.login(loginDto);
