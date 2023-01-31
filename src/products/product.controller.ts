@@ -6,8 +6,9 @@ import {
   Param,
   Patch,
   Post,
+  Req,
 } from '@nestjs/common';
-import { User } from 'src/decorators/user.decorator';
+import { CurrentUser } from 'src/decorators/current-user.decorator';
 import { CreateProductDto } from './dtos/create-product.dto';
 import { DecrementProductDto } from './dtos/decrement-product.dto';
 import { IncrementProductDto } from './dtos/increment-product.dto';
@@ -18,12 +19,13 @@ export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
   @Post()
-  create(@Body() product: CreateProductDto, @User() user: any) {
+  create(@Body() product: CreateProductDto, @CurrentUser() user: any) {
     return this.productService.create(product);
   }
 
   @Get()
-  findAll() {
+  findAll(@CurrentUser() currentUser: any) {
+    console.log(currentUser);
     return this.productService.findAll();
   }
 

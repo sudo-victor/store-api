@@ -4,16 +4,11 @@ import { User } from '../entities/user.entity';
 import { UserRepository } from './user.repository';
 
 @Injectable()
-export class UserArrayRepository implements UserRepository {
+export class ArrayUserRepository implements UserRepository {
   users: User[] = [];
 
-  create(createUserDto: CreateUserDto) {
-    const user = new User(
-      createUserDto.role,
-      createUserDto.name,
-      createUserDto.email,
-      createUserDto.password,
-    );
+  create(data: CreateUserDto) {
+    const user = new User(data.role, data.name, data.email, data.password);
 
     this.users.push(user);
     return user;

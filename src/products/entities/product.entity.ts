@@ -1,4 +1,4 @@
-import { HttpCode, HttpException, HttpStatus } from '@nestjs/common';
+import { HttpException, HttpStatus } from '@nestjs/common';
 import { v4 as uuid } from 'uuid';
 
 export class Product {
