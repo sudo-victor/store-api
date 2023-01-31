@@ -7,8 +7,9 @@ import { UserModule } from './users/user.module';
 @Module({
   imports: [
     TypeOrmModule.forRoot({
-      driver: 'sqlite',
-      database: 'meubanco.sqlite',
+      type: 'sqlite',
+      database: './src/database/database.sqlite',
+      synchronize: true,
     }),
     ProductModule,
     UserModule,
